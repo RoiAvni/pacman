@@ -1,9 +1,0 @@
-version: 0.2
-
-phases:
-  pre_build:
-    commands:
-      - aws eks update-kubeconfig --name pacman-eks-cluster --region eu-west-3
-  build:
-    commands:
-      - kubectl apply -f kubernetes/
