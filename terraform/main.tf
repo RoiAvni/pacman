@@ -1,7 +1,9 @@
-resource "random_string" "suffix" {
-  length  = 5
-  upper   = false
-  special = false
+terraform {
+  backend "s3" {
+    bucket = "pacman-s3-terraform-state-roiavni"
+    key    = "eks/terraform.tfstate"
+    region = "eu-west-3"
+  }
 }
 
 provider "aws" {
@@ -15,7 +17,7 @@ provider "kubernetes" {
 }
 
 resource "aws_iam_role" "eks_cluster_role" {
-  name = "eksClusterRole-${random_string.suffix.result}"
+  name = "eksClusterRoleRoiAvni"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -29,13 +31,13 @@ resource "aws_iam_role" "eks_cluster_role" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "eks_cluster_AmazonEKSClusterPolicy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
   role       = aws_iam_role.eks_cluster_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
 resource "aws_eks_cluster" "eks" {
-  name     = var.cluster_name
+  name     = "pacman-RoiAvni"
   role_arn = aws_iam_role.eks_cluster_role.arn
   version  = var.cluster_version
 
@@ -48,9 +50,7 @@ resource "aws_eks_cluster" "eks" {
     endpoint_private_access = false
   }
 
-  depends_on = [
-    aws_iam_role_policy_attachment.eks_cluster_AmazonEKSClusterPolicy
-  ]
+  depends_on = [aws_iam_role_policy_attachment.eks_cluster_policy]
 }
 
 data "aws_eks_cluster_auth" "cluster" {
@@ -58,7 +58,7 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 resource "aws_iam_role" "eks_node_role" {
-  name = "eksNodeRole"
+  name = "eksNodeRoleRoiAvni"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -72,24 +72,24 @@ resource "aws_iam_role" "eks_node_role" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "node_AmazonEKSWorkerNodePolicy" {
+resource "aws_iam_role_policy_attachment" "worker_node_policy" {
   role       = aws_iam_role.eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 
-resource "aws_iam_role_policy_attachment" "node_AmazonEC2ContainerRegistryReadOnly" {
-  role       = aws_iam_role.eks_node_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-}
-
-resource "aws_iam_role_policy_attachment" "node_AmazonEKS_CNI_Policy" {
+resource "aws_iam_role_policy_attachment" "cni_policy" {
   role       = aws_iam_role.eks_node_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
+resource "aws_iam_role_policy_attachment" "ecr_read_policy" {
+  role       = aws_iam_role.eks_node_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+}
+
 resource "aws_eks_node_group" "node_group" {
   cluster_name    = aws_eks_cluster.eks.name
-  node_group_name = var.node_group_name
+  node_group_name = "pacman-node-group-RoiAvni"
   node_role_arn   = aws_iam_role.eks_node_role.arn
 
   subnet_ids = [
@@ -104,9 +104,9 @@ resource "aws_eks_node_group" "node_group" {
   }
 
   depends_on = [
-    aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodePolicy,
-    aws_iam_role_policy_attachment.node_AmazonEC2ContainerRegistryReadOnly,
-    aws_iam_role_policy_attachment.node_AmazonEKS_CNI_Policy
+    aws_iam_role_policy_attachment.worker_node_policy,
+    aws_iam_role_policy_attachment.cni_policy,
+    aws_iam_role_policy_attachment.ecr_read_policy
   ]
 }
 

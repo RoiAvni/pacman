@@ -4,16 +4,16 @@ variable "region" {
   default     = "eu-west-3"
 }
 
-variable "cluster_version" {
-  description = "Kubernetes version for the EKS cluster"
-  type        = string
-  default     = "1.32"
-}
-
 variable "cluster_name" {
   description = "The name of the EKS cluster"
   type        = string
   default     = "pacman"
+}
+
+variable "cluster_version" {
+  description = "Kubernetes version for the EKS cluster"
+  type        = string
+  default     = "1.32"
 }
 
 variable "node_group_name" {
