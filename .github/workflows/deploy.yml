@@ -33,3 +33,9 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+
+      - name: Configure kubectl access to EKS
+        run: aws eks update-kubeconfig --region eu-west-3 --name pacman-RoiAvni
+
+      - name: Deploy Kubernetes manifests
+        run: kubectl apply -f ../k8s
