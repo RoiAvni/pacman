@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pacman-roiavni-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pacman-roiavni
+  template:
+    metadata:
+      labels:
+        app: pacman-roiavni
+    spec:
+      containers:
+        - name: pacman
+          image: 339712888957.dkr.ecr.eu-west-3.amazonaws.com/pacman-roiavni:latest
+          ports:
+            - containerPort: 80

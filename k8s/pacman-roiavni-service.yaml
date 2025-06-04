@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pacman-roiavni-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: pacman-roiavni
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
