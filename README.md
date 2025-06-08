@@ -80,7 +80,7 @@
 
 ### 🌐 קישור לאתר החי (Load Balancer)
 
-> [http://<כתובת-loadbalancer>] – (להחליף עם הכתובת בפועל)
+af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 
 ---
 
