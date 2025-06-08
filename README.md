@@ -1,4 +1,4 @@
-## 🎮 פרויקט סיום DevOps – Pacman על AWS
+## 🎮 פרוייקט סיום DevOps – Pacman על AWS
 
 ### 🧾 תאור כללי
 
