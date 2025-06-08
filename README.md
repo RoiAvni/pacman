@@ -59,7 +59,12 @@
 - הסנכרון הראשוני בין GitHub ל־Terraform דרש יצירת secrets והפרדת ערכים לקבצים מתאימים  
   ➜ פתרון: שימוש בקבצים `terraform.tfvars` ו־`backend.tf` עם ערכים רגישים בנפרד
 
-- קובץ ה־Deployment דרש תיקון בערך `replicas`, והריצה נבדקה אוטומטית דרך GitHub Actions
+- קובץ ה־Deployment דרש תיקון בערך `replicas`, והריצה נבדקה אוטומטית דרך GitHub Actions  
+  ➜ הפתרון: עדכון הערך ישירות ב־GitHub, והפעלת `kubectl apply` כחלק מה־CI/CD
+
+- למרות שהוגדרו 2 נודים בקובצי Terraform, לעיתים ה־Node Group הפעיל רק נוד 1  
+  ➜ הפתרון: בוצע תיקון ידני דרך הקונסולה של AWS – עדכון ההגדרות ל־minSize=2 ושמירה
+
  
 
 ---
