@@ -53,9 +53,14 @@
 
 ### 🧠 אתגרים ופתרונות
 
-* שימוש ב־Provider של קוברנטיס מתוך Terraform יצר שגיאות auth מול EKS ➜ נפתר ע״י הגדרה ידנית של ConfigMap  
-* הסנכרון הראשוני בין GitHub ל־Terraform דרש יצירת secrets והפרדה לקבצים מתאימים (`terraform.tfvars`, `backend.tf`)  
-* קובץ deployment היה צריך תיקון ל־replicas, והריצה נבדקה אוטומטית ב־GitHub Actions  
+- שימוש ב־Provider של קוברנטיס מתוך Terraform גרם לשגיאות הרשאות מול אשכול ה־EKS  
+  ➜ הפתרון: מעבר להגדרה ידנית של ConfigMap מסוג `aws-auth` בעזרת `kubectl`
+
+- הסנכרון הראשוני בין GitHub ל־Terraform דרש יצירת secrets והפרדת ערכים לקבצים מתאימים  
+  ➜ פתרון: שימוש בקבצים `terraform.tfvars` ו־`backend.tf` עם ערכים רגישים בנפרד
+
+- קובץ ה־Deployment דרש תיקון בערך `replicas`, והריצה נבדקה אוטומטית דרך GitHub Actions
+ 
 
 ---
 
