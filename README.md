@@ -26,15 +26,16 @@
 
 1. **שכפול קוד המשחק** מהמאגר GitHub של הפרויקט המקורי והעלאתו לריפו אישי  
 2. **יצירת קבצי Terraform** להקמת EKS, Node Group, Networking ו־IAM Roles  
-3. **שימוש ב־backend.tf** לניהול state ב־S3  
-4. **הרצת terraform apply** להקמה בפועל של המשאבים בענן  
-5. **פריסת הקבצים הקוברנטיים** (YAML) – יצירת Deployment ו־Service מסוג LoadBalancer  
-6. **הגדרה ידנית של aws-auth ConfigMap** בגלל מגבלות ב־Terraform Provider  
-7. **הוספת CI/CD עם GitHub Actions**:  
-   * שלב 1: Terraform apply אוטומטי על כל שינוי  
-   * שלב 2: kubectl apply אוטומטי על קבצי YAML  
-8. **בדיקות סופיות** לוודא שיש 2 נודים, 2 פודים פעילים, והאתר מגיב דרך Load Balancer  
-9. **שיפור קבצי YAML** – שינוי `replicas` ל־3 ולאחר מכן חזרה ל־2, והבדיקה הצליחה  
+3. **שימוש בקובץ `backend.tf`** לניהול state בענן בעזרת S3 + DynamoDB  
+4. **הרצת `terraform apply`** מתוך GitHub Actions להקמה בפועל של המשאבים בענן  
+5. **פריסת הקבצים הקוברנטיים (YAML)** – יצירת קובצי `Deployment` ו־`Service` מסוג LoadBalancer  
+6. **הגדרה ידנית של `aws-auth ConfigMap`** עקב שגיאות ב־Terraform Provider  
+7. **הוספת תהליך CI/CD אוטומטי עם GitHub Actions**:  
+   * שלב 1: `terraform apply` אוטומטי על כל שינוי בתשתית  
+   * שלב 2: `kubectl apply` אוטומטי על קובצי YAML  
+8. **בדיקות סופיות** – ווידוא שיש 2 נודים, 2 פודים פעילים, והאתר מגיב דרך Load Balancer  
+9. **שיפור קובצי YAML** – שינוי `replicas` ל־3 ולאחר מכן חזרה ל־2, דרך GitHub בלבד (ללא מגע ידני)
+
 
 ---
 
