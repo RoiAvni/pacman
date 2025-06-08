@@ -1,194 +1,120 @@
-# 🎮 Pac-Man על AWS עם Terraform, EKS ו-GitHub Actions – פרויקט גמר ב-DevOps
+## 🎮 פרויקט סיום DevOps – Pacman על AWS
 
-![Terraform CI](https://github.com/RoiAvni/pacman/actions/workflows/terraform.yml/badge.svg)
-![Deploy CI](https://github.com/RoiAvni/pacman/actions/workflows/deploy-kubectl.yml/badge.svg)
+### 🧾 תאור כללי
 
----
-
-## 📌 סקירה כללית
-
-פרויקט הגמר שלי ב-DevOps מציג תהליך אוטומטי מלא לפריסת משחק Pac-Man על אשכול Kubernetes מנוהל (Amazon EKS), תוך שימוש ב-Terraform כקוד תשתית (IaC), וב-GitHub Actions לאוטומציה (CI/CD).
-
-הפרויקט נבנה שלב אחר שלב – מהעתקת קוד המקור, דרך בניית תשתית בענן, ועד לפריסה מלאה ותחזוקה אוטומטית של היישום דרך GitHub.
+בפרויקט זה פרסתי משחק Pacman באמצעות קוברנטיס (EKS) על תשתית בענן AWS
+תוך שימוש ב־Terraform, GitHub Actions ו־CI/CD אוטומטי.
+המערכת מאפשרת ניהול תשתית וקוד בצורה אוטומטית, רציפה, ומבוססת קוד (Infrastructure as Code).
 
 ---
 
-## 🎯 מטרות הפרויקט
+### 🛠️ טכנולוגיות ושירותים עיקריים
 
-* להקים תשתית מלאה בענן באמצעות Terraform
-* לפרוס את אפליקציית Pac-Man על אשכול EKS
-* ליצור תהליך CI/CD מלא עם GitHub Actions
-* להדגים שימוש מעשי בעקרונות DevOps בתעשייה
+* **AWS EKS** – קוברנטיס מנוהל להרצת הקונטיינרים  
+* **EC2 Auto Scaling Group** – להרצת 2 נודים מסוג `t3.medium`  
+* **Elastic Load Balancer** – חשיפה חיצונית של המשחק  
+* **Terraform** – לבניית תשתיות  
+* **GitHub Actions** – להרצת תהליך CI/CD  
+* **kubectl** – לפריסה וניהול משאבים בקוברנטיס  
 
 ---
 
-## 📁 מבנה התיקיות
+### ⚙️ שלבי הפרויקט
 
-```
+1. **שכפול קוד המשחק** מהמאגר GitHub של הפרויקט המקורי והעלאתו לריפו אישי  
+2. **יצירת קבצי Terraform** להקמת EKS, Node Group, Networking ו־IAM Roles  
+3. **שימוש ב־backend.tf** לניהול state ב־S3  
+4. **הרצת terraform apply** להקמה בפועל של המשאבים בענן  
+5. **פריסת הקבצים הקוברנטיים** (YAML) – יצירת Deployment ו־Service מסוג LoadBalancer  
+6. **הגדרה ידנית של aws-auth ConfigMap** בגלל מגבלות ב־Terraform Provider  
+7. **הוספת CI/CD עם GitHub Actions**:  
+   * שלב 1: Terraform apply אוטומטי על כל שינוי  
+   * שלב 2: kubectl apply אוטומטי על קבצי YAML  
+8. **בדיקות סופיות** לוודא שיש 2 נודים, 2 פודים פעילים, והאתר מגיב דרך Load Balancer  
+9. **שיפור קבצי YAML** – שינוי `replicas` ל־3 ולאחר מכן חזרה ל־2, והבדיקה הצליחה  
+
+---
+
+### 🔁 קונסיסטנטיות מלאה ב־CI/CD
+
+המערכת כעת פועלת כך שכל שינוי בענף `main` של GitHub מביא ל־:  
+* עדכון תשתיות בענן (Terraform)  
+* עדכון שירותים ורפליקות במשחק (kubectl)  
+
+---
+
+### 🧠 אתגרים ופתרונות
+
+* שימוש ב־Provider של קוברנטיס מתוך Terraform יצר שגיאות auth מול EKS ➜ נפתר ע״י הגדרה ידנית של ConfigMap  
+* הסנכרון הראשוני בין GitHub ל־Terraform דרש יצירת secrets והפרדה לקבצים מתאימים (`terraform.tfvars`, `backend.tf`)  
+* קובץ deployment היה צריך תיקון ל־replicas, והריצה נבדקה אוטומטית ב־GitHub Actions  
+
+---
+
+### 📸 צילומי מסך (ישולבו ב־PDF)
+
+* קונסולת AWS – Cluster, Nodes, EC2, Load Balancer  
+* פלט של `kubectl get pods`, `kubectl get nodes`  
+* GitHub Actions – ריצות ירוקות מוצלחות  
+* האתר עצמו דרך ה־Load Balancer  
+
+---
+
+### 🌐 קישור לאתר החי (Load Balancer)
+
+> [http://<כתובת-loadbalancer>] – (להחליף עם הכתובת בפועל)
+
+---
+
+### 🧩 מבנה תיקיות
+
 .
-├── terraform/                  # כל קבצי התשתית (Terraform)
-├── k8s/                        # קבצי YAML של Kubernetes
-├── .github/workflows/         # קובצי GitHub Actions
-│   ├── terraform.yml
-│   └── deploy-kubectl.yml
-└── README.md                  # קובץ התיעוד
-```
+├── terraform/
+│ ├── main.tf
+│ ├── variables.tf
+│ ├── backend.tf
+│ └── terraform.tfvars
+├── k8s/
+│ ├── pacman-roiavni-deployment.yaml
+│ └── pacman-roiavni-service.yaml
+├── .github/workflows/
+│ └── deploy.yml
+├── public/ # קוד המקור של המשחק
+├── server.js
+├── app.js
+└── Dockerfile
+
 
 ---
 
-## 🧱 שלבי עבודה
+### 📦 שלב עתידי – Docker + ECR עבור Node.js
 
-### 1. 📥 העתקת קוד המקור של המשחק
+האפליקציה בנויה כ־Node.js מלא, כולל server.js ו־app.js, עם Dockerfile שמבצע התקנה והרצה.
+ניתן לבנות Docker Image, לדחוף אותו ל־Amazon ECR
+ולעדכן את ה־Deployment של Kubernetes לשימוש בתמונה הפרטית.
 
-* שיבוט של הריפו הפומבי [https://github.com/font/pacman](https://github.com/font/pacman)
-* העתקת הקבצים הרלוונטיים (HTML, JS, CSS)
-* העלאתם לריפו פרטי בגיטהאב עם מבנה מסודר
+* מתאים לארגונים שרוצים שליטה בקוד ובגרסאות  
+* מאפשר להרחיב בקלות את הלוגיקה בעתיד  
+* מדגים CI/CD מלא – גם על קוד אפליקציה, לא רק תשתית  
 
-### 2. 🧱 הקמת תשתית עם Terraform
-
-* יצירת קבצים: `main.tf`, `variables.tf`, `outputs.tf`, `terraform.tfvars`, `backend.tf`
-* הגדרת משאבים:
-
-  * `aws_eks_cluster`, `aws_eks_node_group`, `aws_iam_role`
-  * תתי-רשתות (subnets), VPC, קבוצות אבטחה
-* שימוש ב-S3 לשמירת state וב-DynamoDB לנעילה
-
-### 3. 🧪 הרצת Terraform
-
-```bash
-terraform init -reconfigure
-terraform plan
-terraform apply
-```
-
-* התוצאה: אשכול EKS + NodeGroup פעילים בענן
-
-### 4. 🔐 חיבור ל-EKS והרשאות גישה
-
-* ניסיון לפרוס `aws_auth` דרך Terraform נכשל
-* ✅ פתרון: יצרתי קובץ `aws-auth.yaml` ידני והפעלתי עם:
-
-```bash
-aws eks update-kubeconfig --name pacman-RoiAvni --region <region>
-kubectl apply -f k8s/aws-auth.yaml
-```
-
-* זה מדגים טיפול בבעיה אמיתית ופתרון יצירתי בתנאי שטח
-
-### 5. ☸️ פריסת Pac-Man עם Kubernetes
-
-* נבנו שני קבצים:
-
-  * `pacman-roiavni-deployment.yaml` – כולל הגדרת `replicas`
-  * `pacman-roiavni-service.yaml` – כולל LoadBalancer
-* הפעלה עם:
-
-```bash
-kubectl apply -f k8s/
-```
-
-### 6. 🔁 CI/CD – פריסת תשתית עם GitHub Actions
-
-* קובץ `.github/workflows/terraform.yml`
-* מריץ אוטומטית `terraform apply` על כל שינוי ב־`terraform/**`
-* משתמש ב-Secrets של GitHub: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
-
-### 7. 🚀 CI/CD – פריסת אפליקציה עם kubectl
-
-* קובץ `.github/workflows/deploy-kubectl.yml`
-* מריץ `kubectl apply` אוטומטי על כל שינוי ב־YAML
-* חיבור לקלאסטר עם `aws eks update-kubeconfig`
-
-### 8. ✅ בדיקה אוטומטית
-
-* שינוי `replicas: 2` ל־`3` וחזרה ל־`2` – דרך GitHub בלבד
-* התוצאה: הפודים השתנו בהתאם – ללא הפעלת פקודות ידניות
-
-### 9. 🧪 בדיקות סופיות
-
-* LoadBalancer פעיל וציבורי
-* GitHub Actions עובדים באופן אוטומטי
-* קבצי YAML משנים את הפודים בענן בזמן אמת
-
-### 10. 📦 ניקוי משאבים (לבודק)
-
-* השארתי את כל המשאבים פעילים לצורכי בדיקה והצגה
-* הבודק יכול למחוק לפי הצורך
+💡 לא נדרש בפרויקט, אך רלוונטי מאוד בתעשייה  
 
 ---
 
-## 🌐 קישור לאתר החי
+### 🧠 מה למדתי
 
-🎮 **[שחקו Pac-Man כאן](http://<כתובת-load-balancer>)**
-
-> החלף לכתובת האמיתית של ה־LoadBalancer שלך
-
----
-
-## 🧰 טכנולוגיות בשימוש
-
-* **Amazon EKS** – Kubernetes מנוהל
-* **Terraform** – קוד תשתית
-* **GitHub Actions** – אוטומציה ו־CI/CD
-* **Kubernetes** – פריסת האפליקציה
-* **S3 + DynamoDB** – שמירת מצב (state) של Terraform
+* איך בונים תשתיות ב־AWS בצורה אוטומטית ומודולרית (Terraform)  
+* איך מחברים בין קוד, תשתית ופריסה (CI/CD מלא)  
+* איך מתמודדים עם באגים כמו הרשאות EKS או פודים שנופלים  
+* איך בודקים כל שינוי בגיטהאב ויודעים שהוא מגיע לענן באמת  
 
 ---
 
-## 🧠 אתגרים ופתרונות
+### ✅ מצב סיום
 
-| אתגר                                   | פתרון                                    |
-| -------------------------------------- | ---------------------------------------- |
-| `aws_auth` גרם לשגיאת הרשאות           | עברתי ל-YAML ידני ופתרתי עם `kubectl`    |
-| `kubernetes provider` החזיר שגיאת טוקן | עברתי לפקודת CLI של `update-kubeconfig`  |
-| NodeGroup לא עלו                       | עדכנתי את מדיניות ה-IAM וההרשאות הנדרשות |
+* [x] הקלאסטר פעיל  
+* [x] המשחק פועל  
+* [x] כל שינוי ב־GitHub ➜ מגיע לענן  
+* [x] מוכנות מלאה להגשה  
 
----
 
-## 📸 תמונות מומלצות לצרף
-
-* Cluster ו־Nodes מתוך AWS Console
-* GitHub Actions – הצלחה בשני הקבצים
-* `kubectl get pods` + `kubectl get nodes`
-* צילום מסך של המשחק פועל
-
----
-
-## 🙋‍♂️ נכתב ע"י
-
-**Roi Avni**
-DevOps – פרויקט סיום 2025
-
----
-
-## 🏁 סטטוס
-
-✅ הפרויקט עובד בענן
-✅ ה־CI/CD מלא ואוטומטי
-✅ הכל נפרס בענן דרך GitHub בלבד
-
----
-
-## 🧾 סיכום אישי
-
-במהלך הפרויקט למדתי לחבר בין קוד ב־GitHub לבין תשתית אמיתית בענן, ולפתור תקלות כמו `aws-auth` או הרשאות של NodeGroup. זו הייתה הפעם הראשונה שיצרתי קלאסטר Kubernetes אמיתי – ואני מרוצה מהתוצאה: תהליך פריסה אוטומטי, נקי ומלא שעובד בענן אמיתי ללא צורך במעורבות ידנית.
-
----
-
-## 💡 טיפים לבודק או למרצה
-
-* התיקייה `terraform/` כוללת את כל הגדרות הענן
-* קבצי YAML בתיקייה `k8s/` כוללים את הפריסה של Pac-Man
-* ניתן לשנות ערך כמו `replicas` ב־GitHub ולראות שינוי מיידי בענן
-* יש 2 GitHub Actions נפרדים – אחד לתשתית, אחד לפריסה
-* ניתן לבדוק את כתובת ה־LoadBalancer לצפייה במשחק
-
----
-
-## 🧠 דברים שלמדתי בפרויקט
-
-* איך להקים תשתית אמיתית עם Terraform כולל backend בענן
-* איך לחבר קובצי YAML לאשכול EKS בצורה נקייה ואוטומטית
-* איך לפתור תקלות בשטח, כמו בעיות IAM או קונפיגורציה ב־kubectl
-* איך להגדיר CI/CD שמגיב אוטומטית לשינויים מה־GitHub בלבד
-* איך לחשוב כמו איש DevOps אמיתי – אוטומציה, הפרדה בין תשתית לאפליקציה, פתרון תקלות לבד
