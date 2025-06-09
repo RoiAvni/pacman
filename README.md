@@ -69,12 +69,27 @@
 
 ---
 
-### 📸 צילומי מסך (ישולבו ב־PDF)
+## 📸 צילומי מסך
 
-* קונסולת AWS – Cluster, Nodes, EC2, Load Balancer  
-* פלט של `kubectl get pods`, `kubectl get nodes`  
-* GitHub Actions – ריצות ירוקות מוצלחות  
-* האתר עצמו דרך ה־Load Balancer  
+להלן צילומי מסך מהשלבים השונים בפרויקט:
+
+| 🔢 מספר | 📝 תיאור | 🖼️ תצוגה |
+|--------|----------|----------|
+| 1 | קלאסטר פעיל ב־Amazon EKS | ![](./screenshots/01-cluster.png) |
+| 2 | שני נודים פעילים באשכול | ![](./screenshots/02-nodes.png) |
+| 3 | מכונות EC2 שהוקמו כחלק מה־Node Group | ![](./screenshots/03-ec2.png) |
+| 4 | Load Balancer ציבורי למשחק | ![](./screenshots/04-load-balancer.png) |
+| 5 | פלט של `kubectl get nodes` – שני נודים | ![](./screenshots/05-kubectl-get-nodes.png) |
+| 6 | פלט של `kubectl get pods` – שני פודים רצים | ![](./screenshots/06-kubectl-get-pods.png) |
+| 7 | פלט של `kubectl get service` – מופע LoadBalancer | ![](./screenshots/07-kubectl-service.png) |
+| 8 | בדיקה: שינוי `replicas` ל־3 וחזרה ל־2 דרך GitHub Actions | ![](./screenshots/08-replicas-test.png) |
+| 9 | ריצת GitHub Action – תשתית (Terraform) | ![](./screenshots/09-github-terraform-action.png) |
+| 10 | ריצת GitHub Action – פריסת קבצי YAML (kubectl) | ![](./screenshots/10-github-kubectl-action.png) |
+| 11 | קובץ `aws-auth.yaml` ידני שהופעל עם `kubectl` | ![](./screenshots/11-aws-auth.png) |
+| 12 | צילום מסך של המשחק Pac-Man רץ בענן | ![](./screenshots/12-running-game.png) |
+| 13 | מבנה תיקיות מלא של הפרויקט כפי שנראה ב־VSCode | ![](./screenshots/13-repo-structure.png) |
+
+> 🗂️ כל הקבצים נמצאים בתיקיית `screenshots/` בתוך הריפוזיטורי. 
 
 ---
 
