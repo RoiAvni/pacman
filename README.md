@@ -69,27 +69,27 @@
 
 ---
 
-## 📸 צילומי מסך
+## 🖼️ צילומי מסך
 
 להלן צילומי מסך מהשלבים השונים שבוצעו במהלך הפרויקט:
 
-| 🔢 מספר | 📝 תיאור | 🖼️ תצוגה |
-|--------|----------|----------|
-| 1 | קלאסטר פעיל ב־Amazon EKS | ![](./screenshots/01-cluster.png) |
-| 2 | שני נודים פעילים באשכול | ![](./screenshots/02-nodes.png) |
-| 3 | מכונות EC2 שהוקמו כחלק מה־Node Group | ![](./screenshots/03-ec2.png) |
-| 4 | Load Balancer ציבורי למשחק | ![](./screenshots/04-load-balancer.png) |
-| 5 | פלט של `kubectl get nodes` – שני נודים | ![](./screenshots/05-kubectl-get-nodes.png) |
-| 6 | פלט של `kubectl get pods` – שני פודים פעילים | ![](./screenshots/06-kubectl-get-pods.png) |
-| 7 | פלט של `kubectl get service` – שירות מסוג LoadBalancer | ![](./screenshots/07-kubectl-service.png) |
-| 8 | בדיקה: שינוי ערך `replicas` מ־2 ל־3 וחזרה | ![](./screenshots/08-replicas-test.png) |
-| 9 | ריצת GitHub Action עבור Terraform | ![](./screenshots/09-github-terraform-action.png) |
-| 10 | ריצת GitHub Action עבור kubectl | ![](./screenshots/10-github-kubectl-action.png) |
-| 11 | קובץ `aws-auth.yaml` שהופעל ידנית | ![](./screenshots/11-aws-auth.png) |
-| 12 | המשחק Pac-Man רץ בענן ב־LoadBalancer | ![](./screenshots/12-running-game.png) |
-| 13 | מבנה התיקיות והקבצים של הפרויקט ב־VSCode | ![](./screenshots/13-repo-structure.png) |
+| 🖼️ תוצאה | 📄 תיאור | 🆔 מספר |
+|-----------|----------|--------|
+| ![](./screenshots/01-cluster.png) | קלאסטר פעיל ב־**Amazon EKS** | 1 |
+| ![](./screenshots/02-nodes.png) | שני נודים פעילים באשכול | 2 |
+| ![](./screenshots/03-ec2.png) | מכונות **EC2** שהוקמו כחלק מ־**Node Group** | 3 |
+| ![](./screenshots/04-load-balancer.png) | חשיפה ציבורית למשחק דרך **Load Balancer** | 4 |
+| ![](./screenshots/05-kubectl-get-nodes.png) | פלט של `kubectl get nodes` – שני נודים | 5 |
+| ![](./screenshots/06-kubectl-get-pods.png) | פלט של `kubectl get pods` – שני פודים פעילים | 6 |
+| ![](./screenshots/07-kubectl-get-service.png) | פלט של `kubectl get service` – שירות מסוג **LoadBalancer** | 7 |
+| ![](./screenshots/08-replicas-test.png) | בדיקה: שינוי ערך `replicas` מ־2 ל־3 וחזרה | 8 |
+| ![](./screenshots/09-github-terraform-action.png) | הרצת **GitHub Action** עבור **Terraform** | 9 |
+| ![](./screenshots/10-github-kubectl-action.png) | הרצת **GitHub Action** עבור **kubectl** | 10 |
+| ![](./screenshots/11-aws-auth.png) | פריסת `aws-auth.yaml` עם `kubectl` | 11 |
+| ![](./screenshots/12-running-game.png) | הרצת **Pac-Man** בענן דרך **LoadBalancer** | 12 |
+| ![](./screenshots/13-repo-structure.png) | מבנה הפרויקט ב־**VSCode** כולל קבצים ותיקיות | 13 |
 
-> 🗂️ כל קבצי התמונות נמצאים בתיקייה `screenshots/` שבתוך הריפו.
+> 📁 **הערה:** כל קבצי התמונות שמורים בתיקייה `screenshots/`
 
 ---
 
