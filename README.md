@@ -102,23 +102,42 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 
 ---
 
-### 🧩 מבנה תיקיות
+```markdown
+## 🧩 מבנה תיקיות
 
-.
-├── terraform/
-│ ├── main.tf
-│ ├── variables.tf
-│ ├── backend.tf
-│ └── terraform.tfvars
-├── k8s/
-│ ├── pacman-roiavni-deployment.yaml
-│ └── pacman-roiavni-service.yaml
-├── .github/workflows/
-│ └── deploy.yml
-├── public/ # קוד המקור של המשחק
-├── server.js
-├── app.js
-└── Dockerfile
+```
+
+📁 root/
+├── 📁 .github/workflows/         # קבצי GitHub Actions (CI/CD)
+│   ├── 📄 deploy-kubectl.yml
+│   └── 📄 terraform.yml
+├── 📁 terraform/                # תשתית AWS באמצעות Terraform
+│   ├── 📄 main.tf
+│   ├── 📄 variables.tf
+│   ├── 📄 outputs.tf
+│   ├── 📄 backend.tf
+│   └── 📄 terraform.tfvars
+├── 📁 k8s/                      # קבצי YAML לפריסת המשחק על EKS
+│   ├── 📄 aws-auth.yaml
+│   ├── 📄 pacman-roiavni-deployment.yaml
+│   └── 📄 pacman-roiavni-service.yaml
+├── 📁 screenshots/             # צילומי מסך של הפרויקט
+│   └── 🖼️ 01-13 קבצי PNG (לשילוב ב־README)
+├── 📁 public/                  # קוד המקור של המשחק (HTML, CSS, JS, תמונות, אודיו)
+├── 📁 docker/dev/              # סקריפטים ודוקר לפיתוח מקומי
+├── 📁 routes/                  # נתיבי backend באפליקציה
+├── 📁 views/                   # תבניות Jade להצגת דפים
+├── 📁 lib/                     # קבצי תצורת מסד נתונים
+├── 📄 server.js                # שרת Node.js
+├── 📄 app.js                   # קובץ ראשי להרצת האפליקציה
+├── 📄 Dockerfile               # לבניית image של האפליקציה
+└── 📄 README.md                # תיעוד הפרויקט
+
+```
+
+> 📌 **הערה**: בתיקיית `public/` נמצאים כל המשאבים הסטטיים להפעלת המשחק – כולל HTML, CSS, JavaScript, תמונות וצלילים.
+```
+
 
 
 ---
