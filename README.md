@@ -74,21 +74,26 @@
 
 להלן צילומי מסך מהשלבים השונים שבוצעו במהלך הפרויקט:
 
-1. **Amazon EKS** ← קלאסטר פעיל ב־  
-2. שני נודים פעילים באשכול  
-3. מכונות **EC2** שהוקמו כחלק מ־**Node Group**  
-4. חשיפה ציבורית למשחק דרך **Load Balancer**  
-5. פלט הפקודה `kubectl get nodes` – מציג שני נודים  
-6. פלט הפקודה `kubectl get pods` – מציג שני פודים פעילים  
-7. פלט הפקודה `kubectl get service` – שירות מסוג **LoadBalancer**  
-8. בדיקה: שינוי ערך `replicas` מ־2 ל־3 וחזרה ל־2  
-9. הרצת **GitHub Action** עבור **Terraform**  
-10. הרצת **GitHub Action** עבור **kubectl**  
-11. פריסת הקובץ `aws-auth.yaml` באמצעות `kubectl`  
-12. הרצת משחק **Pac-Man** בענן דרך **LoadBalancer**  
-13. תצוגת מבנה הקבצים והתיקיות בפרויקט דרך **VSCode**
+<p dir="rtl">
+
+**1.** קלאסטר פעיל ב־ **Amazon EKS** ←  
+**2.** שני נודים פעילים באשכול  
+**3.** מכונות **EC2** שהוקמו כחלק מ־ **Node Group**  
+**4.** חשיפה ציבורית למשחק דרך **Load Balancer**  
+**5.** פלט הפקודה `kubectl get nodes` – מציג שני נודים  
+**6.** פלט הפקודה `kubectl get pods` – מציג שני פודים פעילים  
+**7.** פלט הפקודה `kubectl get service` – שירות מסוג **LoadBalancer**  
+**8.** בדיקה: שינוי ערך `replicas` מ־2 ל־3 וחזרה ל־2  
+**9.** הרצת **GitHub Action** עבור **Terraform**  
+**10.** הרצת **GitHub Action** עבור **kubectl**  
+**11.** פריסת הקובץ `aws-auth.yaml` באמצעות `kubectl`  
+**12.** הרצת משחק **Pac-Man** בענן דרך **LoadBalancer**  
+**13.** תצוגת מבנה הקבצים והתיקיות בפרויקט דרך **VSCode**
+
+</p>
 
 > 📁 **הערה:** כל קבצי התמונות שמורים בתיקייה `screenshots/`
+
 
 
 </p>
