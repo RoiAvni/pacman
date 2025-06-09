@@ -69,27 +69,30 @@
 
 ---
 
+<p dir="rtl">
+
 ## 🖼️ צילומי מסך
 
-להלן צילומי מסך מהשלבים השונים שבוצעו במהלך הפרויקט:
+להלן רשימת צילומי מסך מהשלבים שבוצעו בפרויקט:
 
-| 🖼️ תוצאה | 📄 תיאור | 🆔 מספר |
-|-----------|----------|--------|
-| ![](./screenshots/01-cluster.png) | קלאסטר פעיל ב־**Amazon EKS** | 1 |
-| ![](./screenshots/02-nodes.png) | שני נודים פעילים באשכול | 2 |
-| ![](./screenshots/03-ec2.png) | מכונות **EC2** שהוקמו כחלק מ־**Node Group** | 3 |
-| ![](./screenshots/04-load-balancer.png) | חשיפה ציבורית למשחק דרך **Load Balancer** | 4 |
-| ![](./screenshots/05-kubectl-get-nodes.png) | פלט של `kubectl get nodes` – שני נודים | 5 |
-| ![](./screenshots/06-kubectl-get-pods.png) | פלט של `kubectl get pods` – שני פודים פעילים | 6 |
-| ![](./screenshots/07-kubectl-get-service.png) | פלט של `kubectl get service` – שירות מסוג **LoadBalancer** | 7 |
-| ![](./screenshots/08-replicas-test.png) | בדיקה: שינוי ערך `replicas` מ־2 ל־3 וחזרה | 8 |
-| ![](./screenshots/09-github-terraform-action.png) | הרצת **GitHub Action** עבור **Terraform** | 9 |
-| ![](./screenshots/10-github-kubectl-action.png) | הרצת **GitHub Action** עבור **kubectl** | 10 |
-| ![](./screenshots/11-aws-auth.png) | פריסת `aws-auth.yaml` עם `kubectl` | 11 |
-| ![](./screenshots/12-running-game.png) | הרצת **Pac-Man** בענן דרך **LoadBalancer** | 12 |
-| ![](./screenshots/13-repo-structure.png) | מבנה הפרויקט ב־**VSCode** כולל קבצים ותיקיות | 13 |
+| 🆔 מספר | 📄 תיאור |
+|--------|----------|
+| 1 | קלאסטר פעיל ב־**Amazon EKS** |
+| 2 | שני נודים פעילים באשכול |
+| 3 | מכונות **EC2** שהוקמו כחלק מ־**Node Group** |
+| 4 | חשיפה ציבורית למשחק דרך **Load Balancer** |
+| 5 | פלט של `kubectl get nodes` – שני נודים |
+| 6 | פלט של `kubectl get pods` – שני פודים פעילים |
+| 7 | פלט של `kubectl get service` – שירות מסוג **LoadBalancer** |
+| 8 | בדיקה: שינוי ערך `replicas` מ־2 ל־3 וחזרה |
+| 9 | הרצת **GitHub Action** עבור **Terraform** |
+| 10 | הרצת **GitHub Action** עבור **kubectl** |
+| 11 | פריסת `aws-auth.yaml` עם `kubectl` |
+| 12 | הרצת **Pac-Man** בענן דרך **LoadBalancer** |
+| 13 | מבנה תיקיות וקבצים בפרויקט בתוך **VSCode** |
 
-> 📁 **הערה:** כל קבצי התמונות שמורים בתיקייה `screenshots/`
+> 📝 **הערה:** כל התמונות נמצאות בתיקייה `screenshots/` וישולבו בקובץ ה־PDF בלבד
+
 
 ---
 
