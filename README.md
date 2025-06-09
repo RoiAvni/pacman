@@ -102,42 +102,40 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 
 ---
 
-```markdown
+<p dir="rtl">
+
 ## 🧩 מבנה תיקיות
 
 ```
-
 📁 root/
 ├── 📁 .github/workflows/         # קבצי GitHub Actions (CI/CD)
 │   ├── 📄 deploy-kubectl.yml
 │   └── 📄 terraform.yml
-├── 📁 terraform/                # תשתית AWS באמצעות Terraform
+├── 📁 terraform/                # קוד תשתית AWS באמצעות Terraform
 │   ├── 📄 main.tf
 │   ├── 📄 variables.tf
 │   ├── 📄 outputs.tf
 │   ├── 📄 backend.tf
 │   └── 📄 terraform.tfvars
-├── 📁 k8s/                      # קבצי YAML לפריסת המשחק על EKS
+├── 📁 k8s/                      # קבצי YAML לפריסת Pac-Man על EKS
 │   ├── 📄 aws-auth.yaml
 │   ├── 📄 pacman-roiavni-deployment.yaml
 │   └── 📄 pacman-roiavni-service.yaml
-├── 📁 screenshots/             # צילומי מסך של הפרויקט
-│   └── 🖼️ 01-13 קבצי PNG (לשילוב ב־README)
+├── 📁 screenshots/             # 📸 צילומי מסך של כל שלבי הפרויקט (01–13)
 ├── 📁 public/                  # קוד המקור של המשחק (HTML, CSS, JS, תמונות, אודיו)
 ├── 📁 docker/dev/              # סקריפטים ודוקר לפיתוח מקומי
 ├── 📁 routes/                  # נתיבי backend באפליקציה
-├── 📁 views/                   # תבניות Jade להצגת דפים
-├── 📁 lib/                     # קבצי תצורת מסד נתונים
-├── 📄 server.js                # שרת Node.js
-├── 📄 app.js                   # קובץ ראשי להרצת האפליקציה
-├── 📄 Dockerfile               # לבניית image של האפליקציה
-└── 📄 README.md                # תיעוד הפרויקט
-
+├── 📁 views/                   # תבניות Jade להצגת דפי HTML
+├── 📁 lib/                     # קבצי תצורה למסד נתונים
+├── 📄 app.js                   # קובץ ראשי להרצת השרת
+├── 📄 server.js                # קובץ שרת Node.js
+├── 📄 Dockerfile               # לבניית Docker image של האפליקציה
+└── 📄 README.md                # תיעוד מלא של הפרויקט
 ```
 
-> 📌 **הערה**: בתיקיית `public/` נמצאים כל המשאבים הסטטיים להפעלת המשחק – כולל HTML, CSS, JavaScript, תמונות וצלילים.
-```
+> 📝 **הערה**: בתיקיית `public/` נמצאים כל המשאבים הסטטיים להפעלת המשחק – כולל HTML, CSS, JavaScript, תמונות וצלילים.
 
+</p>
 
 
 ---
