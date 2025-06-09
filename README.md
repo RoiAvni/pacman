@@ -157,10 +157,11 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 
 ### 🧠 מה למדתי
 
-* איך בונים תשתיות ב־AWS בצורה אוטומטית ומודולרית (Terraform)  
-* איך מחברים בין קוד, תשתית ופריסה (CI/CD מלא)  
-* איך מתמודדים עם באגים כמו הרשאות EKS או פודים שנופלים  
-* איך בודקים כל שינוי בגיטהאב ויודעים שהוא מגיע לענן באמת  
+- איך בונים תשתיות בענן **AWS** בצורה אוטומטית ומודולרית (Terraform)
+- איך מחברים בין קוד, תשתית ופריסה בתהליך **CI/CD מלא**
+- איך מתמודדים עם אתגרים כמו הרשאות **EKS** או פודים שנופלים
+- איך לוודא שכל שינוי ב־GitHub באמת מגיע לענן ונבדק בפועל
+ 
 
 ---
 
