@@ -89,7 +89,7 @@
 | 12 | המשחק Pac-Man רץ בענן ב־LoadBalancer | ![](./screenshots/12-running-game.png) |
 | 13 | מבנה התיקיות והקבצים של הפרויקט ב־VSCode | ![](./screenshots/13-repo-structure.png) |
 
-> 🗂️ כל קובצי התמונות נמצאים בתיקייה `screenshots/` שבתוך הריפו.
+> 🗂️ כל קבצי התמונות נמצאים בתיקייה `screenshots/` שבתוך הריפו.
 
 ---
 
