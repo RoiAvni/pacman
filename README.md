@@ -1,5 +1,5 @@
 <p align="center" style="font-size:28px; font-weight:bold;">
-🎓 פרויקט סיום – Pacman על AWS ב־DevOps 🎮
+🎓פרויקט סיום – Pacman על AWS ב־DevOps🎮
 </p>
 
 ---
