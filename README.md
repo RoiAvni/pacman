@@ -4,7 +4,7 @@
 
 ---
 
-<p align="center" style="font-size:2.2rem; font-weight:bold; margin-top:0;">
+<h1 align="center" style="border:none; margin-bottom:0;">
 רואי אבני
 
 
