@@ -1,13 +1,14 @@
-<p align="center" style="font-size:32px; font-weight:bold;">
-🎮פרויקט סיום – Pacman על AWS במסגרת DevOps🎓
+<p align="center" style="font-size:28px; font-weight:bold;">
+🎓פרויקט סיום – Pacman על AWS ב־DevOps🎮
 </p>
 
 ---
 
-<h1 align = "center">רואי אבני</h1>
+<p align="center" style="font-size:26px; font-weight:bold;">
+רואי אבני
+</p>
 
 ---
-
 
 
 ### 🧾 תאור כללי
