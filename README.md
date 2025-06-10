@@ -116,32 +116,87 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 
 ### 🧩 מבנה תיקיות
 
-```
 📁 root/
-├── 📁 .github/workflows/         # קבצי GitHub Actions (CI/CD)
-│   ├── 📄 deploy-kubectl.yml
-│   └── 📄 terraform.yml
-├── 📁 terraform/                # קוד תשתית AWS באמצעות Terraform
-│   ├── 📄 main.tf
-│   ├── 📄 variables.tf
-│   ├── 📄 outputs.tf
-│   ├── 📄 backend.tf
-│   └── 📄 terraform.tfvars
-├── 📁 k8s/                      # קבצי YAML לפריסת Pac-Man על EKS
-│   ├── 📄 aws-auth.yaml
-│   ├── 📄 pacman-roiavni-deployment.yaml
-│   └── 📄 pacman-roiavni-service.yaml
-├── 📁 screenshots/             # 📸 צילומי מסך של כל שלבי הפרויקט (01–13)
-├── 📁 public/                  # קוד המקור של המשחק (HTML, CSS, JS, תמונות, אודיו)
-├── 📁 docker/dev/              # סקריפטים ודוקר לפיתוח מקומי
-├── 📁 routes/                  # נתיבי backend באפליקציה
-├── 📁 views/                   # תבניות Jade להצגת דפי HTML
-├── 📁 lib/                     # קבצי תצורה למסד נתונים
-├── 📄 app.js                   # קובץ ראשי להרצת השרת
-├── 📄 server.js                # קובץ שרת Node.js
-├── 📄 Dockerfile               # לבניית Docker image של האפליקציה
-└── 📄 README.md                # תיעוד מלא של הפרויקט
-```
+├── 📁 .github/workflows/ # קבצי GitHub Actions (CI/CD)
+│ ├── 📄 deploy-kubectl.yml
+│ └── 📄 terraform.yml
+├── 📁 bin/ # קבצי שרת נוספים
+│ └── 📄 server.js
+├── 📁 diagrams/ # 🎨 דיאגרמות אדריכלות (PNG + DRAWIO)
+│ ├── 📄 pacman-diagram.png
+│ └── 📄 pacmen-diagram.drawio
+├── 📁 docker/dev/ # סקריפטים ודוקר לפיתוח מקומי
+│ ├── 📄 Dockerfile_nodejs_dev
+│ ├── 📄 kill_pacman_dev.sh
+│ ├── 📄 kill_pacman_mongo_dev.sh
+│ ├── 📄 kill_pacman_nodejs_dev.sh
+│ ├── 📄 start_pacman_dev.sh
+│ ├── 📄 start_pacman_mongo_dev.sh
+│ └── 📄 start_pacman_nodejs_dev.sh
+├── 📁 k8s/ # קבצי YAML לפריסת Pac-Man על EKS
+│ ├── 📄 aws-auth.yaml
+│ ├── 📄 pacman-roiavni-deployment.yaml
+│ └── 📄 pacman-roiavni-service.yaml
+├── 📁 kubernetes/ # קבצי YAML ישנים
+│ ├── 📄 deployment.yaml
+│ └── 📄 service.yaml
+├── 📁 lib/ # קבצי תצורה למסד נתונים
+│ ├── 📄 config.js
+│ └── 📄 database.js
+├── 📁 public/ # קוד המקור של המשחק (HTML, CSS, JS, תמונות, אודיו)
+│ ├── 📄 cache.manifest
+│ ├── 📄 index.html
+│ ├── 📄 pacman-canvas.css
+│ ├── 📄 pacman-canvas.js
+│ ├── 📄 style.css
+│ ├── 📁 data/
+│ │ └── 📄 map.json
+│ ├── 📁 fonts/
+│ │ ├── 📄 PressStart2Play.eot
+│ │ ├── 📄 PressStart2Play.ttf
+│ │ └── 📄 PressStart2Play.woff
+│ ├── 📁 img/
+│ │ ├── 📄 *.svg / *.png / Pacman-Icon.svg וכו'
+│ │ └── 📁 instructions/
+│ │ ├── 📄 instructions_chase.PNG
+│ │ ├── 📄 instructions_powerpill.PNG
+│ │ └── 📄 instructions_scatter.PNG
+│ ├── 📁 js/
+│ │ ├── 📄 jquery-3.4.1.min.js
+│ │ └── 📄 jquery.hammer.min.js
+│ ├── 📁 mp3/
+│ │ └── 📄 *.mp3
+│ └── 📁 wav/
+│ └── 📄 *.wav
+├── 📁 routes/ # נתיבי backend באפליקציה
+│ ├── 📄 highscores.js
+│ ├── 📄 location.js
+│ └── 📄 user.js
+├── 📁 screenshots/ # 📸 צילומי מסך של כל שלבי הפרויקט (01–14)
+│ ├── 📄 1.eks-cluster.png
+│ ├── 📄 ... (כולל pacman-diagram.png)
+│ └── 📄 14.pacman-diagram.png
+├── 📁 terraform/ # קוד תשתית AWS באמצעות Terraform
+│ ├── 📄 main.tf
+│ ├── 📄 outputs.tf
+│ ├── 📄 variables.tf
+│ ├── 📄 terraform.tfvars
+│ ├── 📄 backend.tf
+│ ├── 📄 .terraform.lock.hcl
+│ └── 📁 .terraform/
+│ └── 📁 providers/...
+├── 📁 views/ # תבניות Jade להצגת דפי HTML
+│ ├── 📄 error.jade
+│ ├── 📄 index.jade
+│ └── 📄 layout.jade
+├── 📄 .dockerignore
+├── 📄 .gitignore
+├── 📄 app.js
+├── 📄 Dockerfile
+├── 📄 LICENSE
+├── 📄 package.json
+├── 📄 README.md
+└── 📄 server.js
 
 > 📝 **הערה**: בתיקיית `public/` נמצאים כל המשאבים הסטטיים להפעלת המשחק – כולל HTML, CSS, JavaScript, תמונות וצלילים.
 
