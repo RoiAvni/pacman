@@ -120,6 +120,7 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 
 ### 🧩 מבנה תיקיות
 
+```
 📁 root/
 ├── 📁 .github/workflows/         # קבצי GitHub Actions (CI/CD)
 │   ├── 📄 deploy-kubectl.yml
@@ -144,11 +145,9 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 ├── 📄 server.js                # קובץ שרת Node.js
 ├── 📄 Dockerfile               # לבניית Docker image של האפליקציה
 └── 📄 README.md                # תיעוד מלא של הפרויקט
-
+```
 
 > 📝 **הערה**: בתיקיית `public/` נמצאים כל המשאבים הסטטיים להפעלת המשחק – כולל HTML, CSS, JavaScript, תמונות וצלילים.
-
-
 ---
 
 ### 🧱 שלב עתידי – Docker + ECR עבור Node.js
