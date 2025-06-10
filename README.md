@@ -1,4 +1,4 @@
-### 🎮פרויקט סיום – Pacman על AWS ב־DevOps🎓  
+#🎮פרויקט סיום – Pacman על AWS ב־DevOps🎓  
 <h1 align="center">רואי אבני</h1>
 
 ---
