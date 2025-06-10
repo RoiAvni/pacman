@@ -1,9 +1,14 @@
-# 🎮 פרויקט סיום DevOps – Pacman על AWS 🎓
+<h1 align="center" style="border:none; margin-bottom:0;">
+🎮 פרויקט סיום DevOps – Pacman על AWS
 
-## רואי אבני
 
 ---
 
+<p align="center" style="font-size:2.2rem; font-weight:bold; margin-top:0;">
+רואי אבני
+
+
+---
 ### 🧾 תאור כללי
 
 הפרויקט מציג תהליך DevOps מלא – החל משכפול קוד המקור של משחק Pacman מ־GitHub, דרך הקמת תשתית ענן ב־AWS באמצעות Terraform, ועד לפריסה חיה של המשחק על אשכול Kubernetes מנוהל (EKS).
