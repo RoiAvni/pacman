@@ -1,6 +1,6 @@
 <h1 align="center" style="border-bottom: none; margin-bottom: 0; font-size: 32px;">
 🎓פרויקט סיום – Pacman על AWS ב־DevOps🎮
-
+---
 
 <p align="center" style="font-size: 22px; font-weight: bold; margin-top: 10px;">
 רואי אבני
