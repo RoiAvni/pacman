@@ -1,11 +1,11 @@
 <p align="center" style="font-size:4em; font-weight:bold; margin: 0;">
-## 🎓פרויקט סיום DevOps – Pacman על AWS🎮
+🎓פרויקט סיום DevOps – Pacman על AWS🎮
 </p>
 
 ---
 
 <p align="center" style="font-size:4em; font-weight:bold; margin: 0;">
-## רואי אבני
+רואי אבני
 </p>
 
 ---
