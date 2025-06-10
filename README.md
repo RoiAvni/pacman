@@ -1,4 +1,4 @@
-<p align="center" style="font-size:10px; font-weight:bold;">
+<p align="center" style="font-size:100px; font-weight:bold;">
 🎓 פרויקט סיום – Pacman על AWS ב־DevOps 🎮
 </p>
 
