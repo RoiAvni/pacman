@@ -145,8 +145,8 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 ├── 📄 Dockerfile               # לבניית Docker image של האפליקציה
 └── 📄 README.md                # תיעוד מלא של הפרויקט
 
-> 📝 **הערה**: בתיקיית `public/` נמצאים כל המשאבים הסטטיים להפעלת המשחק – כולל HTML, CSS, JavaScript, תמונות וצלילים.
 
+> 📝 **הערה**: בתיקיית `public/` נמצאים כל המשאבים הסטטיים להפעלת המשחק – כולל HTML, CSS, JavaScript, תמונות וצלילים.
 
 
 ---
