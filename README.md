@@ -1,7 +1,7 @@
 # 🎮פרויקט סיום – Pacman על AWS ב־DevOps🎓  
 ---
 
-<h2 align="center">רואי אבני</h2>
+<p align="center"><strong style="font-size:22px">רואי אבני</strong></p>
 
 ---
 
