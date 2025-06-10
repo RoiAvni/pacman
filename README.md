@@ -1,5 +1,5 @@
 <h1 align="center" style="border:none; margin-bottom:0;">
-🎮 פרויקט סיום DevOps – Pacman על AWS
+🎓פרויקט סיום DevOps – Pacman על AWS🎮
 
 
 ---
