@@ -114,6 +114,7 @@
 ### 🌐 קישור לאתר החי (Load Balancer)
 ```
 af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
+```
 
 ---
 
