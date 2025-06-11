@@ -239,8 +239,6 @@ af81060c75fd2433dbbefedebbf259d7-2021084926.eu-west-3.elb.amazonaws.com
 - ☑️ כל שינוי ב־GitHub מגיע לענן ➜  
 - ☑️ התהליך רץ אוטומטית דרך GitHub Actions בשלבי ה־CI/CD  
 - ☑️ המשחק נחשף בענן בהצלחה דרך Load Balancer
-- 
----
 
 ---
 
